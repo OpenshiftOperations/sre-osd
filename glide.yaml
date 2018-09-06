@@ -1,4 +1,4 @@
-package: github.com/fahlmant/go-k8s
+package: github.com/openshiftoperations/sre-osd
 import:
 - package: k8s.io/client-go
   version: kubernetes-1.10.6
