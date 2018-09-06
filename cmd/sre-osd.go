@@ -4,15 +4,15 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"log"
-	"path/filepath"
-	"reflect"
 	apiv1 "k8s.io/api/core/v1"
 	rbacv1 "k8s.io/api/rbac/v1"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/kubernetes/scheme"
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/client-go/util/homedir"
+	"log"
+	"path/filepath"
+	"reflect"
 )
 
 var clusterFlag = flag.String("cluster", "", "Specify the name of the cluster")
@@ -61,7 +61,7 @@ func main() {
 	obj, _, err := decode([]byte(yamlFile), nil, nil)
 	checkErr(err)
 
-    switch o := obj.(type) {
+	switch o := obj.(type) {
 	case *apiv1.Namespace:
 		fmt.Println("Creating namespace...")
 		_, err = clientset.CoreV1().Namespaces().Create(o)
